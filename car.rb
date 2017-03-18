@@ -16,7 +16,7 @@ class Car
     end
 
     def humanize(obj)
-        obj.to_s.gsub('_', ' ').split.map(&:capitalize).join(' ')    
+        obj.to_s.split('_').map(&:capitalize).join(' ')    
     end
 
     def self.next_available_color
