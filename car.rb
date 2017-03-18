@@ -24,6 +24,6 @@ class Car
     end
 
     def self.available_color
-        @@available_color ||= AVAILABLE_COLORS.to_enum.cycle
+        @@available_color ||= AVAILABLE_COLORS.cycle
     end
 end
