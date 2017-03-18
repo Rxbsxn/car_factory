@@ -20,7 +20,6 @@ RSpec.describe Car do
           Object.send(:remove_const, 'Car')
           load 'car.rb'
           stub_const('Car::AVAILABLE_COLORS', %i(black red yellow))
-        #   binding.pry
           expect(Car.new(:fiat).color_name).to eq 'Black'
           expect(Car.new(:fiat).color_name).to eq 'Red'
           expect(Car.new(:fiat).color_name).to eq 'Yellow'

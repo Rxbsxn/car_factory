@@ -2,17 +2,28 @@ class Car
     
     AVAILABLE_COLORS = []
 
-    def initialize(brand, opts = {})
+    def initialize(brand, color: nil)
         @brand = brand
-        @color = opts[:color] ||= nil
+        @color = color ||= self.class.next_available_color
     end
 
     def brand
-        @brand.to_s.capitalize
+        humanize(@brand)
     end
 
     def color_name        
-        @color.to_s.gsub('_', ' ').split.map(&:capitalize).join(' ')
-    end    
-    
+        humanize(@color)
+    end
+
+    def humanize(obj)
+        obj.to_s.gsub('_', ' ').split.map(&:capitalize).join(' ')    
+    end
+
+    def self.next_available_color
+        AVAILABLE_COLORS.any? ? available_color.next : nil
+    end
+
+    def self.available_color
+        @@available_color ||= AVAILABLE_COLORS.to_enum.cycle
+    end
 end
