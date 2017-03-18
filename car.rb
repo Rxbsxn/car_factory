@@ -15,6 +15,7 @@ class Car
         humanize(@color)
     end
 
+    private
     def humanize(obj)
         obj.to_s.split('_').map(&:capitalize).join(' ')    
     end
