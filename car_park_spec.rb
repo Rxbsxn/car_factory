@@ -1,6 +1,5 @@
 require_relative 'car_park'
 require_relative 'car'
-require 'pry'
 
 RSpec.describe CarPark do
   describe '#capacity' do
@@ -28,7 +27,6 @@ RSpec.describe CarPark do
       car2 = Car.new(:fiat)
 
       car_park.receive([car1, car2])
-      # binding.pry
       expect(car_park.places_left).to eq 98
     end
   end
